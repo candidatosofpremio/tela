@@ -8,9 +8,14 @@ import openai
 st.set_page_config(layout="wide")  # Configura o layout para ocupar toda a largura do navegador
 st.title("Pergunte ao Orçamento")
 
-# Configurar chave de API do OpenAI
-os.environ["OPENAI_API_KEY"] = "sk-proj-MnRTjZmPsulSEtMTUqNMT3BlbkFJ7bm0IPyPtdQ4trauQGmg"
-openai.api_key = os.getenv("OPENAI_API_KEY")
+# Função para configurar a API da OpenAI
+def configure_openai_api():
+    if "openai_api_configured" not in st.session_state:
+        os.environ["OPENAI_API_KEY"] = "sk-proj-0JxreJcux94mflb0FS0QT3BlbkFJU7mQk3vo3KYEv80XfLqd"
+        openai.api_key = os.getenv("OPENAI_API_KEY")
+        st.session_state["openai_api_configured"] = True
+
+configure_openai_api()
 
 # Dicionário de mapeamento de meses
 meses = {
@@ -126,7 +131,7 @@ Digite sua pergunta abaixo para obter a resposta.
 # Explicação sobre a fonte e limitações dos dados
 st.markdown("""
 ## Fonte dos Dados e Limitações
-Os dados utilizados neste experimento foram obtidos do Portal da Transparência do Governo Federal, especificamente da seção Auxílio Brasil. Para este protótipo, a quantidade de dados foi limitada a uma única API e a parte de um único mês (Janeiro de 2023 para o Estado do Ceará) devido às limitações de infraestrutura disponível. Esta abordagem permite a demonstração do protótipo, mas a implementação final poderá incluir um conjunto de dados mais abrangente.
+Os dados utilizados neste experimento foram obtidos do Portal da Transparência do Governo Federal, especificamente da seção Auxílio Brasil. Para este protótipo, a quantidade de dados foi limitada a uma única API e a um único mês (Janeiro de 2023 para o Estado do Ceará) devido às limitações de infraestrutura disponível. Esta abordagem permite a demonstração do protótipo, mas a implementação final poderá incluir um conjunto de dados mais abrangente.
 """)
 
 question = st.text_input("Digite sua pergunta:")
