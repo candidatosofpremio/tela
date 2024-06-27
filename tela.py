@@ -12,8 +12,10 @@ st.title("Pergunte ao Orçamento")
 @st.cache_data
 def configure_openai_api():
     if "openai_api_configured" not in st.session_state:
-        os.environ["OPENAI_API_KEY"] = "sk-proj-Sm8PlmGfRkJouHhMGSUUT3BlbkFJYv5NmBZ90imXwB1hwYfO"
-        openai.api_key = "sk-proj-Sm8PlmGfRkJouHhMGSUUT3BlbkFJYv5NmBZ90imXwB1hwYfO"
+        os.environ["OPENAI_API_KEY"] = st.secrets["openai"]["api_key"]
+        
+        #"sk-proj-Sm8PlmGfRkJouHhMGSUUT3BlbkFJYv5NmBZ90imXwB1hwYfO"
+        openai.api_key = st.secrets["openai"]["api_key"]
         st.session_state["openai_api_configured"] = True
 
 configure_openai_api()
