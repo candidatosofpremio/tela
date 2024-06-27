@@ -126,7 +126,7 @@ Digite sua pergunta abaixo para obter a resposta.
 # Explicação sobre a fonte e limitações dos dados
 st.markdown("""
 ## Fonte dos Dados e Limitações
-Os dados utilizados neste experimento foram obtidos do Portal da Transparência do Governo Federal, especificamente da seção Auxílio Brasil. Para este protótipo, a quantidade de dados foi limitada a uma única API e a um único mês (Janeiro de 2023 para o Estado do Ceará) devido às limitações de infraestrutura disponível. Esta abordagem permite a demonstração do protótipo, mas a implementação final poderá incluir um conjunto de dados mais abrangente.
+Os dados utilizados neste experimento foram obtidos do Portal da Transparência do Governo Federal, especificamente da seção Auxílio Brasil. Para este protótipo, a quantidade de dados foi limitada a uma única API e a parte de um único mês (Janeiro de 2023 para o Estado do Ceará) devido às limitações de infraestrutura disponível. Esta abordagem permite a demonstração do protótipo, mas a implementação final poderá incluir um conjunto de dados mais abrangente.
 """)
 
 question = st.text_input("Digite sua pergunta:")
