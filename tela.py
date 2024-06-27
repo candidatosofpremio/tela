@@ -147,4 +147,8 @@ if st.button("Obter Resposta"):
     if result is not None:
         st.write("Resultado da consulta:")
        
-        st.dataframe(result, height=800)  # Ajusta a altura conforme necessário
+        try:
+            st.dataframe(result, height=800)  # Ajusta a altura conforme necessário
+
+        except:
+            st.write(str(result))
