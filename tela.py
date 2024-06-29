@@ -179,6 +179,7 @@ if st.button("Obter Resposta"):
 
         # Obter a melhor forma de apresentar os dados
         presentation_command = get_best_presentation(result)
+        presentation_command=presentation_command.replace('`','')
         st.write(f"Comando de apresentação sugerido: {presentation_command}")
         
         try:
