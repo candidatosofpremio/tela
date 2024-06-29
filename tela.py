@@ -93,7 +93,7 @@ def get_best_presentation(result):
     response = openai.ChatCompletion.create(
         model="gpt-4",
         messages=[{"role": "user", "content": prompt}],
-        max_tokens=200,
+        max_tokens=1000,
         temperature=0
     )
     presentation_command = response.choices[0].message["content"].strip()
