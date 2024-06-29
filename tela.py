@@ -178,11 +178,11 @@ if st.button("Obter Resposta"):
 
 
         # Obter a melhor forma de apresentar os dados
-        presentation_command = get_best_presentation(result)
-        presentation_command=presentation_command.replace('`','').replace('python','')
-        st.write(f"Comando de apresentação sugerido: {presentation_command}")
+        #presentation_command = get_best_presentation(result)
+        #presentation_command=presentation_command.replace('`','').replace('python','')
+        #st.write(f"Comando de apresentação sugerido: {presentation_command}")
         
-        try:
-            exec(presentation_command)
-        except Exception as e:
-            st.write(f"Erro ao executar o comando de apresentação: {e}")
+        #try:
+        #    exec(presentation_command)
+        #except Exception as e:
+        #    st.write(f"Erro ao executar o comando de apresentação: {e}")
