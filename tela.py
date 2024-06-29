@@ -79,6 +79,27 @@ def create_pandas_command(question, columns):
     command = response.choices[0].message["content"].strip()
     return command
 
+
+
+# Função para obter a melhor forma de apresentar os dados
+def get_best_presentation(result):
+    prompt = f"""
+    Eu tenho os seguintes dados:
+    {result.head().to_string()}
+    
+    Qual é a melhor forma de apresentar esses dados, em um gráfico ou uma tabela? Por favor, forneça um comando de código que eu possa usar para criar essa visualização.
+    """
+    response = openai.ChatCompletion.create(
+        model="gpt-4",
+        messages=[{"role": "user", "content": prompt}],
+        max_tokens=200,
+        temperature=0
+    )
+    presentation_command = response.choices[0].message["content"].strip()
+    return presentation_command
+
+
+
 # Função para executar o comando pandas no DataFrame
 def execute_pandas_command(df, command):
     try:
@@ -152,3 +173,14 @@ if st.button("Obter Resposta"):
 
         except:
             st.write(str(result))
+
+
+
+        # Obter a melhor forma de apresentar os dados
+        presentation_command = get_best_presentation(result)
+        st.write(f"Comando de apresentação sugerido: {presentation_command}")
+        
+        try:
+            exec(presentation_command)
+        except Exception as e:
+            st.write(f"Erro ao executar o comando de apresentação: {e}")
