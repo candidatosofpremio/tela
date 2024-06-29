@@ -85,7 +85,7 @@ def create_pandas_command(question, columns):
 def get_best_presentation(result):
     prompt = f"""
     Eu tenho os seguintes dados:
-    {result.head().to_string()}
+    {result.to_string()}
     
     Qual é a melhor forma de apresentar esses dados, em um gráfico ou uma tabela? Por favor, forneça um comando de código que eu possa usar para criar essa visualização no streamlit.
     Apresente apenas o código em python sem nenhum texto explicativo
